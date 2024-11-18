@@ -143,6 +143,19 @@ data = {"image": rgb, "K": intrinsics}
 predictions = model(data, {})
 ```
 
+## Batch predictions (saved .npy)
+Get a folder of RGB images as input and output a folder of .npy depths [m] (this also outputs depths if --visualize is set). From `scripts` folder run:
+```bash
+python run_batch.py --input-folder <path-to-rgb-input-folder> --output-folder <path-to-depth-output-folder>
+```
+When reading the depth, access in the following way:
+
+```python
+# assuming reading file 0000000000.npy 
+import numpy as np
+depth = np.load("0000000000.npy")
+```
+
 ## Model Zoo
 
 The available models are the following:
